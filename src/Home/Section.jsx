@@ -7,19 +7,21 @@ import {
 } from "@/components/ui/card"
 
 
-export const Section = () => {
+export const Section = ({
+    onFindAns
+}) => {
     const textBoxes = [
         {
-            text : 'Hi, what is the weather'
+            ask : 'Hi, what is the weather'
         },
         {
-            text : 'Hi, what is my location'
+            ask : 'Hi, what is my location'
         },
         {
-            text : 'Hi, what is the temperature'
+            ask : 'Hi, what is the temperature'
         },
         {
-            text : 'Hi, how are you'
+            ask : 'Hi, how are you'
         },
     ]
     return (
@@ -32,12 +34,16 @@ export const Section = () => {
                 <div className=' h-[40%]'>
                     <div className=' grid h-full lg:grid-cols-2 md:grid-cols-2 gap-3'>
                         {textBoxes.map((ele) => (
-                            <Card key={ele.text} >
+                            <Card 
+                                key={ele.ask} 
+                                className = "dark:bg-[#D7C7F421] cursor-pointer" 
+                                onClick = {() => onFindAns(ele)}
+                            >
                                 <CardHeader className = "p-3">
-                                    <CardTitle className = "lg:text-[1.7rem] text-[1.3rem]">{ele.text}</CardTitle>
+                                    <CardTitle className = "lg:text-[1.7rem] text-[1.3rem]">{ele.ask}</CardTitle>
                                 </CardHeader>
                                 <CardContent className = "p-3 lg:py-2">
-                                    <p>Card Content</p>
+                                    <p>Get immediate AI generated response</p>
                                 </CardContent>
                             </Card>
                         ))}
